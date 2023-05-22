@@ -10,10 +10,11 @@ const ToDoList = (props)=>{
   const [input, setInput]=useState('');
   const [todoMatches, setTodoMatches] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const tasksPerPage=4;
 
 //get current tasks
-const indexOfLastTask = currentPage*5;
-const indexOfFirstTask = indexOfLastTask-5;
+const indexOfLastTask = currentPage*tasksPerPage;
+const indexOfFirstTask = indexOfLastTask-tasksPerPage;
 const currentTasks = props.tasks.slice(indexOfFirstTask, indexOfLastTask);
 
 //change the page to current page
@@ -83,7 +84,7 @@ return(
     </div>
   </form>
         <div>
-          <Pagination paginate={paginate} />
+          <Pagination paginate={paginate} tasksPerPage={tasksPerPage}/>
         </div>
   </div>
 )

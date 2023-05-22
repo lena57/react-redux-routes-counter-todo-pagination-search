@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
 const Pagination = (props) => {
 
+const pagesNumberArr=[];
 
-const pagesNumberArr=[]
-for(let i=1; i<=Math.ceil(props.tasks.length/5); i++){
-  pagesNumberArr.push(i)
-}
+  for(let i=1; i<=Math.ceil(props.tasks.length/props.tasksPerPage); i++){
+    pagesNumberArr.push(i)
+  }
 
   return (
     <nav className="container mt-3" >
